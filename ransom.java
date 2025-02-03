@@ -53,7 +53,7 @@ public static void DecryptAll(String path, String key){
     }
 }
     public static void main(String[] args){
-        String path = "C:\\Users\\prash\\Downloads\\idk";
+        String path = "C:\\Users\\prash\\Downloads\\Compressed\\newfol";
         // EncryptAll(path,"secret");
         DecryptAll(path,"secret");
     }

@@ -10,6 +10,19 @@ public class xorEncryptClass {
         return output;
     }
     public static void encryptFile(String inputFile, String key) {
+        File file = new File(inputFile);
+        if(!file.exists()) {
+            System.out.println("File not found!" + inputFile);
+            return;
+        }
+        if(file.length() == 0) {
+            System.out.println("Empty file!" + inputFile);
+            return;
+        }
+        if(file.length() > 1100000000) {
+            System.out.println("File too large!" + inputFile);
+            return;
+        }
         try {
             byte[] inputData = Files.readAllBytes(new File(inputFile).toPath());
             byte[] encryptedData = inputData;
@@ -39,7 +52,7 @@ public class xorEncryptClass {
             for(int i=key.length()-1; i>=0; i--) {
             decryptedData = xorEncrypt(decryptedData, (byte) key.charAt(i));
             }
-            System.out.println("Decryption done!");
+            System.out.println("Decryption done! " + inputFile);
             String outputFile = inputFile.substring(0, inputFile.length() - 6);
             try{
             Files.write(new File(outputFile).toPath(), decryptedData);
