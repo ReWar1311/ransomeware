@@ -35,7 +35,7 @@ public class ransom{
 public static void DecryptAll(String path, String key){
     Path dirPath = Paths.get(path);
     try (Stream<Path> paths = Files.list(dirPath)) {
-        System.out.println("Files:");
+        System.out.println("Folder: ");
         paths.forEach(file -> {
             if (Files.isRegularFile(file)) {
                 xorEncryptClass.decryptFile(file.toString(), key);
@@ -53,7 +53,7 @@ public static void DecryptAll(String path, String key){
     }
 }
     public static void main(String[] args){
-        String path = "C:\\Users\\prash\\Downloads\\Compressed\\newfol";
+        String path = "C:\\Users\\prash\\AppData\\Local\\test";
         // EncryptAll(path,"secret");
         DecryptAll(path,"secret");
     }
